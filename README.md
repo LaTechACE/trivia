@@ -27,7 +27,7 @@ Small Flask, SQLite3, Bootstrap application that collected the submissions for A
 0. Export FLASK_APP variable for flask command
 0. Initialize the Database
 
-## Execution Instructions
+## Development Execution Instructions
 
     export FLASK_APP=trivia
     export FLASK_DEBUG=1
