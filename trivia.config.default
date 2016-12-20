@@ -1,0 +1,5 @@
+[trivia]
+database=trivia.db
+secret_key=abcdefghijklmnopqrstuvwxyz
+admin_user=admin
+admin_pass=password

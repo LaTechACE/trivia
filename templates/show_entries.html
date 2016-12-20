@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if not session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class="form-horizontal add-entry">
+      <div class=form-group>
+        <label for=user class="col-sm-2 control-label">LaTech Username</label>
+        <div class=col-sm-10>
+          <input type=text class=form-control name=user id=user placeholder=abc123>
+        </div>
+      </div>
+
+      <div class=form-group>
+        <label for=cwid class="col-sm-2 control-label">LaTech CWID</label>
+        <div class=col-sm-10>
+          <input type=text class=form-control name=cwid id=cwid placeholder=123-45-678>
+        </div>
+      </div>
+
+      <div class=form-group>
+        <label for=pin class="col-sm-2 control-label">Secret Pin</label>
+        <div class=col-sm-10>
+          <input type=password class=form-control name=pin id=pin>
+        </div>
+      </div>
+
+      <div class=form-group>
+        <label for=q0 class="col-sm-2 control-label">Question 0</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q0 name=q0 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q0>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q1 class="col-sm-2 control-label">Question 1</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q1 name=q1 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q1>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q2 class="col-sm-2 control-label">Question 2</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q2 name=q2 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q2>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q3 class="col-sm-2 control-label">Question 3</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q3 name=q3 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q3>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q4 class="col-sm-2 control-label">Question 4</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q4 name=q4 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q4>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q5 class="col-sm-2 control-label">Question 5</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q5 name=q5 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q5>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q6 class="col-sm-2 control-label">Question 6</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q6 name=q6 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q6>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q7 class="col-sm-2 control-label">Question 7</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q7 name=q7 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q7>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q8 class="col-sm-2 control-label">Question 8</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q8 name=q8 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q8>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class=form-group>
+        <label for=q9 class="col-sm-2 control-label">Question 9</label>
+        <div class=col-sm-10>
+          <div class="input-group">
+            <textarea class="form-control" id=q9 name=q9 rows="3"></textarea>
+            <span class="input-group-addon">
+              <input class="form-control obcus" type=checkbox target=q9>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+      </div>
+    </form>
+  {% endif %}
+  {% if session.logged_in %}
+    <table class="entries table table-striped">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>CWID</th>
+          <th>PIN</th>
+          <th>Q0</th>
+          <th>Q1</th>
+          <th>Q2</th>
+          <th>Q3</th>
+          <th>Q4</th>
+          <th>Q5</th>
+          <th>Q6</th>
+          <th>Q7</th>
+          <th>Q8</th>
+          <th>Q9</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for entry in entries %}
+        <tr>
+          <td>{{ entry.user|safe }}</td>
+          <td>{{ entry.cwid|safe }}</td>
+          <td>{{ entry.pin|safe }}</td>
+          <td>{{ entry.q0|safe }}</td>
+          <td>{{ entry.q1|safe }}</td>
+          <td>{{ entry.q2|safe }}</td>
+          <td>{{ entry.q3|safe }}</td>
+          <td>{{ entry.q4|safe }}</td>
+          <td>{{ entry.q5|safe }}</td>
+          <td>{{ entry.q6|safe }}</td>
+          <td>{{ entry.q7|safe }}</td>
+          <td>{{ entry.q8|safe }}</td>
+          <td>{{ entry.q9|safe }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+{% endblock %}
